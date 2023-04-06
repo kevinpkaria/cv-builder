@@ -40,11 +40,11 @@ app.get('/resume_builder/:theme', (req, res, next) => {
 
 app.post('/submit', (req, res, next) => {
     console.log(req.body);
-    // const userName = req.body.name;
-    // const lowercaseName = userName.toLowerCase();
-    // const noSpaceName = lowercaseName.replace(' ', '');
-    // const shortName = noSpaceName.slice(0, 10);
-    // console.log("short name: ", shortName);
+    const userName = req.body.name;
+    const lowercaseName = userName.toLowerCase();
+    const noSpaceName = lowercaseName.replace(' ', '');
+    const shortName = noSpaceName.slice(0, 10);
+    console.log("short name: ", shortName);
 
     let themeOptions = {
         leftBackgroundColor: '#bf9781',
@@ -54,7 +54,7 @@ app.post('/submit', (req, res, next) => {
 
     if (req.params.theme == 1)
     {
-        pdf.create(dynamicResume(req.body, themeOptions), options).toFile(__dirname + "/docs/" + "_resume.pdf", (error, response) => {
+        pdf.create(dynamicResume(req.body, themeOptions), options).toFile(__dirname + "/docs/" + shortName + "_resume.pdf", (error, response) => {
             if (error) throw Error("File is not Created!")
             console.log(response.filename);
             res.sendFile(response.filename);
@@ -65,7 +65,7 @@ app.post('/submit', (req, res, next) => {
         themeOptions = {
             leftBackgroundColor: '#7fb9df'
         }
-        pdf.create(dynamicResume(req.body, themeOptions), options).toFile(__dirname + "/docs/" + "_resume.pdf", (error, response) => {
+        pdf.create(dynamicResume(req.body, themeOptions), options).toFile(__dirname + "/docs/" + shortName + "_resume.pdf", (error, response) => {
             if (error) throw Error("File is not Created!")
             console.log(response.filename);
             res.sendFile(response.filename);
