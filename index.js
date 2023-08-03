@@ -9,6 +9,7 @@ var formidable = require('formidable');
 var http = require('http');
 
 // Setting Up the MiddleWare
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(expressLayouts);
 app.use(express.static('public'));
