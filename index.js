@@ -1,6 +1,7 @@
 const express = require('express');
 const { response } = require('express')
 const app = express();
+const path = require('path');
 const expressLayouts = require('express-ejs-layouts');
 const dynamicResume = require('./docs/dynamic_resume');;
 const pdf = require('html-pdf');
@@ -9,7 +10,8 @@ var formidable = require('formidable');
 var http = require('http');
 
 // Setting Up the MiddleWare
-// app.set('views', path.join(__dirname, 'views'));
+__dirname = "C:/Users/Kevin Karia/Documents/Coding/CV Builder/cv-builder";
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(expressLayouts);
 app.use(express.static('public'));
