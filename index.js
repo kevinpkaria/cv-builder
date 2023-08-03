@@ -10,7 +10,7 @@ var formidable = require('formidable');
 var http = require('http');
 
 // Setting Up the MiddleWare
-__dirname = "C:/Users/Kevin Karia/Documents/Coding/CV Builder/cv-builder";
+__dirname = "CV Builder/cv-builder";
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(expressLayouts);
